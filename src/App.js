@@ -1,29 +1,28 @@
-import React from 'react';
-import { ApolloProvider } from 'react-apollo';
+import React from 'react'
+import { ApolloProvider } from 'react-apollo'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 
-import logo from './logo.svg';
-import './App.css';
+import {client} from './services/graphql'
 
-function App() {
+import './App.scss'
+import Home from './screens/Home'
+import Detail from './screens/Detail'
+import About from './screens/About'
+
+
+
+
+function ApplicationRoot() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <BrowserRouter className="App">
+        <Route path="/" exact component={Home} />
+        <Route path="/detail/:stationNumber" component={Detail} />
+        <Route path="/about/" component={About} />
+      </BrowserRouter>
+    </ApolloProvider>
   );
 }
 
-export default App;
+export default ApplicationRoot;

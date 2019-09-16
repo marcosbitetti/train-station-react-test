@@ -1,0 +1,36 @@
+@import '../assets/colors';
+
+.App-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.search {
+  position: relative;
+  border-radius: 8px;
+  background: map-get($header_colors, lightBG);
+  &:hover {
+    background: map-get($header_colors, hardBG),
+  }
+  margin-right: 0%;
+  margin-left: 10%;
+  width: 80%;
+  padding-left: 2rem;
+
+  input {
+    color: map-get($header_colors, foreground);
+    &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder, &::placeholder {
+      color: map-get($header_colors, foreground);
+    }
+  }
+
+  .searchIcon {
+    position: relative;
+    left: -1.6rem;
+    top: 6px;
+    overflow: visible;
+    width: 2px;
+    float: left;
+  }
+
+}

@@ -1,0 +1,54 @@
+
+.detail-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+
+  $mapWidth: 550px;
+  $mapHeight: 200px;
+
+  .map {
+    width: $mapWidth;
+    height: $mapHeight;
+  }
+
+  .card {
+
+    .MuiCardMedia-root {
+      >div {
+        display: block;
+        width: $mapWidth;
+        height: $mapHeight;
+        > div {
+          position: relative !important;
+        }
+      }
+    }
+
+    .MuiCardContent-root {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .services {
+      svg {
+        margin-right: 16px;
+        border: 1px solid #888;
+        border-radius: 4px;
+        padding: 6px;
+        background: #fff;
+        box-shadow: 1px 3px 4px 0px #999;
+      }
+      svg:last-child {
+        margin-right: 0px;
+      }
+    }
+
+    .card-detail {
+      text-align: center;
+    }
+  }
+}

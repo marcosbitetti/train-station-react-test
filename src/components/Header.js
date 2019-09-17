@@ -1,14 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { AppBar, Toolbar, IconButton, InputBase } from '@material-ui/core';
-import { Menu as MenuIcon, Search as SearchIcon, Home } from '@material-ui/icons';
+import { Search as SearchIcon, Home } from '@material-ui/icons';
 
-import {client} from '../services/graphql'
 import logo from '../assets/logo.svg';
 import './Header.scss'
-
-import {SEARCH_BY_NAME} from '../services/graphql'
-
 
 const TYPING_DELAY = 250
 
@@ -18,8 +14,7 @@ let timeoutId = null
 function Header(props) {
 
   const useBack = props.change?false:true
-  const change = props.change||function(){}
-
+  
   const _search = (evt) => {
     if (timeoutId) clearTimeout(timeoutId)
     if ((evt.target.value||'').length) {

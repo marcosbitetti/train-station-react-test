@@ -1,4 +1,3 @@
-import React from 'react'
 import ApolloClient from 'apollo-boost'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks';

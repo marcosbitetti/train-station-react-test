@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Container, Box, Tooltip, CircularProgress, Card, CardHeader, CardContent, CardMedia, CardActions  } from '@material-ui/core';
+import React from 'react'
+import { Container, Box, Tooltip, CircularProgress, Card, CardContent, CardMedia  } from '@material-ui/core';
 import GoogleMap from '../components/GMap'
 
 // selected resources
 import { Wifi, LocalParking, LocalTaxi, AddShoppingCart, DirectionsBike } from '@material-ui/icons';
 
-import {client} from '../services/graphql'
 import {addHistory} from '../services/history'
-import logo from '../assets/logo.svg';
 import {GetByNumber} from '../services/graphql'
 import Header from '../components/Header'
 import './Detail.scss'

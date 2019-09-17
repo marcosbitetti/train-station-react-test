@@ -1,21 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Box, CircularProgress, Card, CardHeader, CardContent, CardMedia, CardActions  } from '@material-ui/core';
+import { Container, CircularProgress, Card, CardContent  } from '@material-ui/core';
 
-import {client} from '../services/graphql'
-import logo from '../assets/logo.svg';
 import {SearchByName} from '../services/graphql'
 import Header from '../components/Header'
 import HistoryBar from '../components/HistoryBar'
 import './Home.scss'
 
-import { Wifi, LocalParking, LocalTaxi, AddShoppingCart, DirectionsBike } from '@material-ui/icons';
-
 function Home() {
 
   const [searchTerm, setSearchTerm] = useState('empty')// Hannover
-  const [addItem, setAdditem] = useState()
-  const iconSize = 32
 
   return (
     <div>

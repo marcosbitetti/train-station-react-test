@@ -2,7 +2,6 @@ import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-
 import {client} from './services/graphql'
 
 import './App.scss'
@@ -21,6 +20,7 @@ function ApplicationRoot() {
         <Route path="/detail/:stationNumber" component={Detail} />
         <Route path="/about/" component={About} />
       </BrowserRouter>
+      <div className="powered">marcosbitetti@gmail.com</div>
     </ApolloProvider>
   );
 }

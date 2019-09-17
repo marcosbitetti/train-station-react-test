@@ -34,3 +34,20 @@
   }
 
 }
+
+.back {
+  margin-left: 3rem;
+  color: map-get($header_colors, foreground);
+  text-decoration: none;
+
+  * {
+    display: inline;
+  }
+
+  h6 {
+    position: relative;
+    top: -0.3rem;
+    left: 0.4rem;
+    font-size: 1rem;
+  }
+}

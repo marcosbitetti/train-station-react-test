@@ -7,7 +7,7 @@ const API_ENDPOINT = ((process||{env:{NODE_ENV:'development'}}).env['NODE_ENV']|
 
 
 // QUERY MODELS //
-const SEARCH_BY_NAME = `
+export const SEARCH_BY_NAME = `
   {
     search( searchTerm: "{{name}}" ) {
       stations{
@@ -18,7 +18,7 @@ const SEARCH_BY_NAME = `
   }
 `
 
-const GET_BY_NUMBER = `
+export const GET_BY_NUMBER = `
 {
   stationWithStationNumber(stationNumber:{{number}}) {
     name
@@ -39,7 +39,8 @@ const GET_BY_NUMBER = `
 
 
 export const SearchByName = ({name, renderItem, renderLoading, renderError}) => {
-  const {loading, error, data} = useQuery(gql(SEARCH_BY_NAME.replace('{{name}}',name)))
+  console.log('search ', name)
+  const {loading, error, data} = useQuery(gql(SEARCH_BY_NAME.replace('{{name}}',name)), { options: { fetchPolicy: 'cache-and-network' } } )
   if (loading) return renderLoading() // 'Loading...';
   if (error) return renderError(error.message) // `Error! ${error.message}`;
   return data.search.stations.map((station) => renderItem({...station, key:String(station.stationNumber)}) )

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^3.1.0",
+    "@apollo/react-testing": "^3.1.1",
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
     "apollo-boost": "^0.4.4",
@@ -19,9 +20,9 @@
     "react-scripts": "3.1.1"
   },
   "scripts": {
-    "start": "NODE_ENV=dev react-scripts start",
-    "build": "NODE_ENV=prod react-scripts build",
-    "test": "NODE_ENV=test react-scripts test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "proxy": "https://bahnql.herokuapp.com:443",
@@ -41,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4"
   }
 }

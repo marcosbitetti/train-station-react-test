@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Box, CircularProgress, Card, CardHeader, CardContent, CardMedia, CardActions  } from '@material-ui/core';
+import { Container, Box, Tooltip, CircularProgress, Card, CardHeader, CardContent, CardMedia, CardActions  } from '@material-ui/core';
 import GoogleMap from '../components/GMap'
 
 // selected resources
 import { Wifi, LocalParking, LocalTaxi, AddShoppingCart, DirectionsBike } from '@material-ui/icons';
 
 import {client} from '../services/graphql'
+import {addHistory} from '../services/history'
 import logo from '../assets/logo.svg';
 import {GetByNumber} from '../services/graphql'
 import Header from '../components/Header'
@@ -14,6 +15,11 @@ import './Detail.scss'
 
 
 const iconSize = 32
+const TXT_WIFI = 'WIFI available'
+const TXT_PARKING = 'Parking available'
+const TXT_BICICLY = 'Bicycle Parking available'
+const TXT_NECESSITIES = 'Travel Necessities available'
+const TXT_TAXI = 'Taxi Rank available'
 
 function Detail(props) {
   const {stationNumber} = props.match.params
@@ -26,6 +32,9 @@ function Detail(props) {
 
         <GetByNumber number={stationNumber}
           renderItem={(item) => {
+
+            addHistory(item)
+
             return (
               <Card className="card">
                 <CardMedia>
@@ -38,11 +47,11 @@ function Detail(props) {
                   <Container className="card-detail">
                     <h3>{item.name}</h3>
                     <Box className="services">
-                      {item.hasWiFi && <Wifi size={iconSize} />}
-                      {item.hasParking && <LocalParking size={iconSize} />}
-                      {item.hasTaxiRank && <LocalTaxi size={iconSize} />}
-                      {item.hasTravelNecessities && <AddShoppingCart size={iconSize} />}
-                      {item.hasBicycleParking && <DirectionsBike size={iconSize} />}
+                      {item.hasWiFi && <Tooltip disableFocusListener title={TXT_WIFI}><Wifi size={iconSize} /></Tooltip>}
+                      {item.hasParking && <Tooltip disableFocusListener title={TXT_PARKING}><LocalParking size={iconSize} /></Tooltip>}
+                      {item.hasTaxiRank && <Tooltip disableFocusListener title={TXT_TAXI}><LocalTaxi size={iconSize} /></Tooltip>}
+                      {item.hasTravelNecessities && <Tooltip disableFocusListener title={TXT_NECESSITIES}><AddShoppingCart size={iconSize} /></Tooltip>}
+                      {item.hasBicycleParking && <Tooltip disableFocusListener title={TXT_BICICLY}><DirectionsBike size={iconSize} /></Tooltip>}
                     </Box>
                   </Container>
                 </CardContent>

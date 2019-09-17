@@ -1,3 +1,4 @@
+@import '../assets/colors';
 
 .home-container {
   margin-top: 2rem;
@@ -24,8 +25,8 @@
 
   // Some effects for better ux
   &:hover {
-    background: #f7f766;
-    box-shadow: 0px 2px 8px 0px #222;
+    background: map-get($colors, hoverBackground);
+    box-shadow: 0px 2px 8px 0px #777;
     transform: translate(0px,-2px);
   }
 }

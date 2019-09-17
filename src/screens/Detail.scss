@@ -1,3 +1,4 @@
+@import '../assets/colors';
 
 .detail-container {
   margin-top: 2rem;
@@ -36,10 +37,10 @@
     .services {
       svg {
         margin-right: 16px;
-        border: 1px solid #888;
+        border: 1px solid map-get($colors,forefount);
         border-radius: 4px;
         padding: 6px;
-        background: #fff;
+        background: map-get($colors, background);
         box-shadow: 1px 3px 4px 0px #999;
       }
       svg:last-child {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { AppBar, Toolbar, IconButton, InputBase } from '@material-ui/core';
-import { Menu as MenuIcon, Search as SearchIcon } from '@material-ui/icons';
+import { Menu as MenuIcon, Search as SearchIcon, Home } from '@material-ui/icons';
 
 import {client} from '../services/graphql'
 import logo from '../assets/logo.svg';
@@ -17,6 +17,7 @@ let timeoutId = null
 
 function Header(props) {
 
+  const useBack = props.change?false:true
   const change = props.change||function(){}
 
   const _search = (evt) => {
@@ -44,7 +45,7 @@ function Header(props) {
           <img src={logo} className="App-logo" alt="logo" /> {/*<MenuIcon />*/}
         </IconButton>
 
-        <div className="search">
+        {!useBack &&<div className="search">
           <div className="searchIcon">
             <SearchIcon />
           </div>
@@ -54,7 +55,12 @@ function Header(props) {
             onKeyUp={ _search }
             autoFocus={true}
           />
-        </div>
+        </div>}
+
+        {useBack && <Link to="/" className="back">
+          <Home />
+          <h6>Home</h6>
+        </Link>}
 
       </Toolbar>
     </AppBar>

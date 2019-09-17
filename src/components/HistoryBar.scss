@@ -1,0 +1,28 @@
+@import '../assets/colors';
+
+.history-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+
+  a {
+    margin-right: 8px !important;
+    padding: 0.05rem;
+    font-weight: 600;
+    text-decoration: none !important;
+  }
+  a:last-child {
+    margin-right: 0px !important;
+  }
+
+  .chip:hover {
+    background: map-get($colors,hoverBackground);
+    color: map-get($colors,hoverForefount);
+    transform: translate(0px,-2px);
+    box-shadow: 1px 4px 8px 0px #666;
+  }
+}

@@ -6,30 +6,36 @@ import {client} from '../services/graphql'
 import logo from '../assets/logo.svg';
 import {SearchByName} from '../services/graphql'
 import Header from '../components/Header'
+import HistoryBar from '../components/HistoryBar'
 import './Home.scss'
 
 import { Wifi, LocalParking, LocalTaxi, AddShoppingCart, DirectionsBike } from '@material-ui/icons';
 
 function Home() {
 
-  const [searchTerm, setSearchTerm] = useState('Hannover')
+  const [searchTerm, setSearchTerm] = useState('empty')// Hannover
+  const [addItem, setAdditem] = useState()
   const iconSize = 32
+
   return (
     <div>
       <Header change={ (term) => setSearchTerm(term) }/>
 
-      <Container display="flex" className="home-container">
+      <HistoryBar />
 
+      <Container display="flex" className="home-container">
         <SearchByName
           name={searchTerm}
           renderItem={(item) => {
             return (
-              <Card className="card-item" key={item.key}>
-                <CardContent>
-                  <h5> {item.name}</h5>
-                  <sub>#{item.stationNumber}</sub>
-                </CardContent>
-              </Card>
+              <Link to={'/detail/'+item.stationNumber}  key={item.key}>
+                <Card className="card-item">
+                  <CardContent>
+                    <h5> {item.name}</h5>
+                    <sub>#{item.stationNumber}</sub>
+                  </CardContent>
+                </Card>
+              </Link>
             )
           }}
           renderLoading={() => {
@@ -39,7 +45,7 @@ function Home() {
           }}
           renderError={(message) => {
             return (
-              <h3 class="error">{message}</h3>
+              <h3 className="error">{message}</h3>
             )
           }}
           />

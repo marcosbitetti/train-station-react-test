@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  //animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
 }
@@ -30,4 +30,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.powered {
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
 }

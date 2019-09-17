@@ -36,4 +36,11 @@
   position: fixed;
   bottom: 4px;
   right: 4px;
+  font-size: 0.7rem;
+
+  sub {
+    position: relative;
+    top: -0.2rem;
+    font-size: 60%;
+  }
 }

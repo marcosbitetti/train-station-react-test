@@ -20,7 +20,7 @@ function ApplicationRoot() {
         <Route path="/detail/:stationNumber" component={Detail} />
         <Route path="/about/" component={About} />
       </BrowserRouter>
-      <div className="powered">marcosbitetti@gmail.com</div>
+      <div className="powered"><sub>powered by:</sub> marcosbitetti@gmail.com</div>
     </ApolloProvider>
   );
 }
